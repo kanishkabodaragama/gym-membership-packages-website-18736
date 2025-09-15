@@ -4,16 +4,29 @@ Elegant React frontend to display gym membership packages and their features usi
 
 ## Quick Start
 
-1) Install
+1) Install  
    npm install
 
-2) Environment variables
-   Copy `.env.example` to `.env` and set:
+2) Environment variables  
+   Create `.env` in `gym_packages_frontend/` and set:
    - REACT_APP_SUPABASE_URL
    - REACT_APP_SUPABASE_KEY
+   - (Optional) REACT_APP_SITE_URL for dynamic redirects in auth flows
 
-3) Start
+3) Start  
    npm start
+
+## Supabase Configuration
+
+This project expects two tables `packages` and `package_features` with read access.  
+We have provisioned these tables and basic RLS policies (read for anon) during setup.  
+If you need different access rules (e.g., authenticated-only), update policies accordingly.
+
+See `../assets/supabase.md` for:
+- Full schema details
+- RLS policies and alternatives
+- Auth URL configuration steps
+- Troubleshooting
 
 ## Data Source (Supabase)
 
@@ -22,7 +35,6 @@ Expected tables:
 - package_features (id, package_id, feature, included, note)
 
 Adjust names/columns in `src/App.js` if your schema differs.
-See `../assets/supabase.md` for more details and security notes.
 
 ## Theme
 
